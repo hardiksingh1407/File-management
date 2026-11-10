@@ -89,24 +89,25 @@ def delete_file():
             print(f"File '{filename}' does not exist.")
     except Exception as e:
         print(f"An error occurred while deleting the file: {e}")
-
-
-print("press 1 for creating a new file")
-print("press 2 for reading an existing file")
-print("press 3 for updating an existing file")
-print("press 4 for deleting an existing file")
 def input_1():
-    check = int(input("Enter your choice : "))
-    if check==1:
-        creat_file()
-    elif check==2:
-        read_file()
-    elif check==3:
-        update_file()
-    elif check==4:
-        delete_file()
-    else:
-        print("Invalid choice. Please select a valid option.")
-
-
+            while True :
+                    print("press 1 for creating a new file")
+                    print("press 2 for reading an existing file")
+                    print("press 3 for updating an existing file")
+                    print("press 4 for deleting an existing file")
+                    print("press 5 for exiting the program")
+                    check = int(input("Enter your choice : "))
+                    if check==1:
+                        creat_file()
+                    elif check==2:
+                        read_file()
+                    elif check==3:
+                        update_file()
+                    elif check==4:
+                        delete_file()
+                    elif check==5:
+                        print("Thanks!! Goodby!!!")
+                        break
+                    else:
+                        print("Invalid choice. Please select a valid option.")
 input_1()
