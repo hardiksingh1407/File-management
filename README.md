@@ -72,12 +72,11 @@ Each operation is a separate function:
 
 ## Known Limitations
 
-- Overwriting or deleting a file has no confirmation or undo.
+- Overwriting or deleting a file has no undo.
 - Only text files are supported.
 
 ## Future Improvements
 
-- [ ] Add confirmation before overwriting or deleting files
 - [ ] Refactor the code into a `FileManager` class
 - [ ] Add a command-line interface with `argparse`
 - [ ] Add unit tests with `pytest`
