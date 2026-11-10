@@ -53,13 +53,17 @@ def update_file():
                     print(f"File '{filename}' renamed to '{new_filename}' successfully.")
                 else:
                     print(f"File '{filename}' does not exist.")
-            elif choice==2:
-                
+             elif choice==2: 
                 if p.exists():
                     with open(p,'w') as f:
                         input_data=input("Enter the new data to overwrite the file : ")
-                        f.write(input_data)
-                    print(f"File '{filename}' overwritten successfully.")
+                        conf=input("Enter y/n for conforming yes or no : ")
+                        if confirm(conf):
+                            f.write(input_data)
+                            print(f"File '{filename}' overwritten successfully.")
+                        else:
+                            print("Changes made is declined.")    
+                     
                 else:
                     print(f"File '{filename}' does not exist.")
             elif choice==3:
@@ -79,16 +83,24 @@ def update_file():
 
 def delete_file():
     fileinfolder()
-    try:
+     try:
         filename=input("Enter the name of the file to delete : ")
         p=Path(filename)
         if p.exists() and p.is_file():
-            p.unlink()
-            print(f"File '{filename}' deleted successfully.")
+            conf=input("Enter y/n for conforming yes or no : ")
+            if confirm(conf):
+                p.unlink()
+                print(f"File '{filename}' deleated successfully.")
+            else:
+                print("Deleting fine  is been declined.")
         else:
             print(f"File '{filename}' does not exist.")
     except Exception as e:
         print(f"An error occurred while deleting the file: {e}")
+def confirm(conf):
+    ans=conf.lower()
+    return ans=='y'
+
 def input_1():
             while True :
                     print("press 1 for creating a new file")
